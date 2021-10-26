@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iORA</title>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<style> .btn{border:1px solid black; padding:5px;display:inline-block} </style>
+<style>
+* 
+table, th, td, form {
+    border: 1px solid black;
+}
+
+select {
+    padding: 8px 12px;
+    color: black;
+    background-color: light grey;
+    border: 1px solid light grey;
+    cursor: pointer;
+    border-radius: 8px;
+   
+}
+select:focus,
+select:hover {
+    outline: none;
+    border: 1px solid darker grey;
+}
+select option {
+    background: light grey;
+}
+
+{
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Give iORA A Try!</h1>
+</div>
+
+	<h1>Click the Button to run your first reation</h1>
+
+    <select name="Reaction" id="select">
+        <option disabled selected >Select a Reaction Type</option>
+        <option value="Elimination Reactions">Elimination Reactions</option>
+        <option value="Reactions of Organometallics">Reactions of Organometallics</option>
+        <option value="Reactions of Epoxides">Reactions of Epoxides</option>
+        <option value="Reactions of Aromatics">Reactions of Aromatics</option>
+      </select>  <table>
+       
+        <div class='container'>
+            <p> *note any reaction type will work for the correct input of moles</p>
+        <p>Number of Moles   <input type="text"    id='textEntered1'></p>   
+        <p><input type = 'button' class = 'btn btn-primary' id ='btn_1' value='Run Reaction'></p>      
+        <div id = 'textDisplayed1'></div>  
+
+
+<p>Click the button to run the reaction.</p>
+ 
+ <button onclick="myFunction()">Visualize with the Simulator</button>
+
+
+</body>
+
+<script>
+
+"use strict";
+
+function isNaturalNumber(x){
+	if((isNaN(x) || x<=0) || x!=parseInt(x)){
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+
+
+$('#btn_1').click(function(){
+
+	let x = $('#textEntered1').val();
+
+	if (isNaturalNumber(x)){
+       alert ('correct amount of moles!')
+	} else {
+		alert ('invalid input')
+	}
+
+
+})
+ function myFunction() {
+var x = document.createElement("IMG");
+   x.setAttribute("src", "reaction.png");
+   x.setAttribute("width", "400");
+   x.setAttribute("height", "600");
+   x.setAttribute("alt", "reaction photo");
+   document.body.appendChild(x);
+ }
+ 
+ </script>
+ </html>
+
